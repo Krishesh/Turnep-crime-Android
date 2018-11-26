@@ -1,5 +1,7 @@
 package com.example.shres.nbdemo2.Activity;
 
+import android.app.ActivityOptions;
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -18,8 +20,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.shres.nbdemo2.FirebaseHelper;
 import com.example.shres.nbdemo2.Fragements.NavBar.CrimeReport;
 import com.example.shres.nbdemo2.Fragements.BottomNavBar.Dashboard;
 import com.example.shres.nbdemo2.Fragements.BottomNavBar.Home;
@@ -27,14 +36,21 @@ import com.example.shres.nbdemo2.Fragements.NavBar.MissingPeople;
 import com.example.shres.nbdemo2.Fragements.NavBar.NearBy;
 import com.example.shres.nbdemo2.Fragements.NavBar.News;
 import com.example.shres.nbdemo2.Fragements.BottomNavBar.Profile;
+import com.example.shres.nbdemo2.GridViewAdaptor;
 import com.example.shres.nbdemo2.R;
+import com.example.shres.nbdemo2.Spacecraft;
+import com.example.shres.nbdemo2.ViewImageActivity;
+import com.google.firebase.database.DatabaseReference;
 
 public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private TextView mTextMessage;
     private FloatingActionButton fab;
-
+    EditText nameEditTxt,addressEditText,phonenumber;
+    DatabaseReference db;
+    FirebaseHelper helper;
+    private ArrayAdapter<String> adapter;
     //Bottom navigation bar activity  for calling corresponding fragments
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -57,6 +73,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
                     ft2.replace(R.id.flMain,new Profile());
                     ft2.commit();
                     return true;
+
             }
             return false;
         }
@@ -68,6 +85,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
 
         //call 100
 /*
@@ -109,9 +129,71 @@ public class NavigationDrawerActivity extends AppCompatActivity
         ft.commit();
 
         }
+        
+      /*  fab=findViewById(R.id.call100);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayInputDialog();
+            }
+
+
+
+        });*/
 
 
     }
+   /* private void displayInputDialog()
+    {
+        Dialog d=new Dialog(NavigationDrawerActivity.this);
+        d.setTitle("Save To Firebase");
+        d.setContentView(R.layout.input_dialog);
+
+        nameEditTxt= (EditText) d.findViewById(R.id.nameEditText);
+        addressEditText= (EditText) d.findViewById(R.id.propellantEditText);
+        phonenumber= (EditText) d.findViewById(R.id.descEditText);
+        Button saveBtn= (Button) d.findViewById(R.id.saveBtn);
+
+        //SAVE
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //GET DATA
+                String name=nameEditTxt.getText().toString();
+                String address=addressEditText.getText().toString();
+                String phone=phonenumber.getText().toString();
+
+                //SET DATA
+                Spacecraft s=new Spacecraft();
+                s.setName(name);
+                s.setAddress(address);
+                s.setPhonenumber(phone);
+
+                //SIMPLE VALIDATION
+                if(name != null && name.length()>0)
+                {
+                    //THEN SAVE
+                    if(helper.save(s))
+                    {
+                        //IF SAVED CLEAR EDITXT
+                        nameEditTxt.setText("");
+                        addressEditText.setText("");
+                        phonenumber.setText("");
+
+
+
+                    }
+                }else
+                {
+                    Toast.makeText(NavigationDrawerActivity.this,"Name Must Not Be Empty", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+        d.show();
+    }*/
 
     @Override
     public void onBackPressed() {
