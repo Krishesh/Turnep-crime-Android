@@ -168,7 +168,21 @@ public class NavigationDrawerActivity extends AppCompatActivity
         } else if (id == R.id.nav_about_FAQ) {
 
         } else if (id== R.id.nav_share) {
-            startActivity(new Intent(NavigationDrawerActivity.this, ShareApp.class));
+            Intent i = new Intent(
+
+                    android.content.Intent.ACTION_SEND);
+
+            i.setType("text/plain");
+
+            i.putExtra(
+
+                    android.content.Intent.EXTRA_TEXT, "My new app https://play.google.com/store/search?q=Turnep");
+
+            startActivity(Intent.createChooser(
+
+                    i,
+
+                    "Share Via"));
             return true;
         }
 
