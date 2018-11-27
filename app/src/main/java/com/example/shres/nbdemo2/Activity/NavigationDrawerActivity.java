@@ -1,11 +1,9 @@
 package com.example.shres.nbdemo2.Activity;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
+
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
@@ -17,7 +15,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import com.example.shres.nbdemo2.Fragements.NavBar.CrimeReport;
@@ -170,6 +167,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
             ft.commit();
         } else if (id == R.id.nav_about_FAQ) {
 
+        } else if (id== R.id.nav_share) {
+            startActivity(new Intent(NavigationDrawerActivity.this, ShareApp.class));
+            return true;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
