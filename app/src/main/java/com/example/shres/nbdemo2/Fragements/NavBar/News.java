@@ -45,11 +45,11 @@ public class News extends Fragment {
 
 
         itemObjects = getItemObject();
-        /* RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(itemObjects, getActivity());*/
+         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(itemObjects, getActivity());
         recyclerViewAdapter = new RecyclerViewAdapter(itemObjects,getActivity());
         recyclerView.setAdapter((RecyclerView.Adapter) recyclerViewAdapter);
-        /*RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);*/
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
         recyclerViewAdapter.notifyDataSetChanged();
 /*        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
             @Override
@@ -67,9 +67,7 @@ public class News extends Fragment {
     }));*/
         return view;
     }
-    private FragmentManager getSupportFragmentManager() {
-        return null;
-    }
+
 
 
     public List<ItemObject> getItemObject() {
