@@ -1,6 +1,7 @@
 package com.example.shres.nbdemo2.Activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
@@ -29,7 +30,6 @@ import com.example.shres.nbdemo2.R;
 public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView mTextMessage;
     private FloatingActionButton fab;
 
     //Bottom navigation bar activity  for calling corresponding fragments
@@ -84,8 +84,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
 */
 
 
-
-        mTextMessage = (TextView) findViewById(R.id.message);
+        TextView mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -135,12 +134,20 @@ public class NavigationDrawerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.call) {
+            call();
+            return true;
+        }
+        if (id==R.id.message){
+
             return true;
         }
 
+
         return super.onOptionsItemSelected(item);
     }
+
+
 
 
     // selecting navigation bar items n opening corresponding fragments
@@ -168,26 +175,41 @@ public class NavigationDrawerActivity extends AppCompatActivity
         } else if (id == R.id.nav_about_FAQ) {
 
         } else if (id== R.id.nav_share) {
-            Intent i = new Intent(
-
-                    android.content.Intent.ACTION_SEND);
-
-            i.setType("text/plain");
-
-            i.putExtra(
-
-                    android.content.Intent.EXTRA_TEXT, "My new app https://play.google.com/store/search?q=Turnep");
-
-            startActivity(Intent.createChooser(
-
-                    i,
-
-                    "Share Via"));
-            return true;
+           share();
+           return true;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    //share ur app with other application users-------in Navigation bar 
+    private void share() {
+        Intent i = new Intent(
+
+                android.content.Intent.ACTION_SEND);
+
+        i.setType("text/plain");
+
+        i.putExtra(
+
+                android.content.Intent.EXTRA_TEXT, "My new app https://play.google.com/store/search?q=Turnep");
+
+        startActivity(Intent.createChooser(
+
+                i,
+
+                "Share Via"));
+    }
+
+    // call action if needed ---------for condensed menu item
+    private void call() {
+        Intent callintent = new Intent(Intent.ACTION_DIAL);
+        callintent.setData(Uri.parse("tel:100"));
+        startActivity(callintent);
+    }
+
+
+
 }
