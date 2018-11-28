@@ -7,8 +7,4 @@
     android:orientation="horizontal"
     tools:context=".Fragements.BottomNavBar.Home">
 
-
-
-
-
 </FrameLayout>
