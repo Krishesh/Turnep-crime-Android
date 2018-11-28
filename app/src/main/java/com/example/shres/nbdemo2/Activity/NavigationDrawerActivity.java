@@ -66,23 +66,6 @@ public class NavigationDrawerActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //call 100
-/*
-        fab = (FloatingActionButton) findViewById(R.id.call100);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-
-            public void onClick(View view) {
-                // to make call
-                Intent callintent = new Intent(Intent.ACTION_DIAL);
-                callintent.setData(Uri.parse("tel:100"));
-                startActivity(callintent);
-            }
-
-        });
-*/
-
 
         TextView mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
