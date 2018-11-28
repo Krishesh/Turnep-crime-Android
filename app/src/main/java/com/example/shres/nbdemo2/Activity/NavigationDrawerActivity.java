@@ -29,7 +29,6 @@ import com.example.shres.nbdemo2.R;
 public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView mTextMessage;
     private FloatingActionButton fab;
 
     //Bottom navigation bar activity  for calling corresponding fragments
@@ -84,8 +83,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
 */
 
 
-
-        mTextMessage = (TextView) findViewById(R.id.message);
+        TextView mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
