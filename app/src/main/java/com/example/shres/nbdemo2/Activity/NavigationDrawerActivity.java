@@ -167,6 +167,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
             ft.commit();
         } else if (id == R.id.nav_about_FAQ) {
 
+            Intent launchActivity2 = new Intent(NavigationDrawerActivity.this, AboutandFaq.class);
+            startActivity(launchActivity2 );
+
         } else if (id== R.id.nav_share) {
             Intent i = new Intent(
 
