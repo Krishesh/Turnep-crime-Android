@@ -95,7 +95,9 @@
             android:textColor="@color/colorPrimary"
             android:text="@string/turnepcom"
             android:textSize="17dp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:onClick="goToUrl"
+            android:tag="http://facebook.com/turnep" />
 
         <TextView
             android:id="@+id/textView6"
@@ -115,7 +117,9 @@
             android:textColor="@color/colorPrimary"
             android:text="@string/support"
             android:textSize="17dp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:onClick="goToUrl"
+            android:tag="http://facebook.com/turnep" />
 
         <TextView
             android:id="@+id/textView7"
