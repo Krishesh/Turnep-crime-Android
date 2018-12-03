@@ -1,6 +1,7 @@
 package com.example.shres.nbdemo2.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -31,6 +32,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FloatingActionButton fab;
+    SharedPreferences sp;
 
     //Bottom navigation bar activity  for calling corresponding fragments
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -51,9 +53,11 @@ public class NavigationDrawerActivity extends AppCompatActivity
                     return true;
                 case R.id.navigation_profile:
                     FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
-                    ft2.replace(R.id.flMain,new Profile());
-                    ft2.commit();
-                    return true;
+                        ft2.replace(R.id.flMain,new Profile());
+                        ft2.commit();
+                        return true;
+
+
             }
             return false;
         }
@@ -134,7 +138,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.call) {
+        if (id == R.id.call1) {
             call();
             return true;
         }
@@ -212,6 +216,8 @@ public class NavigationDrawerActivity extends AppCompatActivity
         callintent.setData(Uri.parse("tel:100"));
         startActivity(callintent);
     }
+
+
 
 
 
