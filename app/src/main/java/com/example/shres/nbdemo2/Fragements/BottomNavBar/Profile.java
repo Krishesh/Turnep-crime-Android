@@ -12,6 +12,7 @@ import android.widget.Button;
 import com.example.shres.nbdemo2.LoginAndRegistration.LoginActivity;
 import com.example.shres.nbdemo2.LoginAndRegistration.SignUpActivity;
 import com.example.shres.nbdemo2.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +31,8 @@ public class Profile extends Fragment {
                              Bundle savedInstanceState) {
          Button signupButton;
          Button LoginButton;
+         Button signoutButton;
+
 
 //        if (sp.getBoolean("logged", false)) {
 //            Intent intent = new Intent(getActivity(), SignUpActivity.class);
@@ -52,6 +55,17 @@ public class Profile extends Fragment {
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent in = new Intent(getActivity(),LoginActivity.class);
+                startActivity(in);
+
+            }
+        });
+        signoutButton =(Button) view.findViewById(R.id.signout);
+        signoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+
                 Intent in = new Intent(getActivity(),LoginActivity.class);
                 startActivity(in);
 
