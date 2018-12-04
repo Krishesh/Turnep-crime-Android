@@ -26,9 +26,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.AboutandFaq" />
-        <activity android:name=".Activity.SignUpActivity" />
-        <activity android:name=".Activity.LoginActivity" />
-        <activity android:name=".Activity.ResetPasswordActivity"></activity>
+        <activity android:name=".LoginAndRegistration.SignUpActivity" />
+        <activity android:name=".LoginAndRegistration.LoginActivity" />
+        <activity android:name=".LoginAndRegistration.ResetPasswordActivity"></activity>
     </application>
 
 </manifest>

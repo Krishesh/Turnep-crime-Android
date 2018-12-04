@@ -1,4 +1,4 @@
-package com.example.shres.nbdemo2.Activity;
+package com.example.shres.nbdemo2.LoginAndRegistration;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;

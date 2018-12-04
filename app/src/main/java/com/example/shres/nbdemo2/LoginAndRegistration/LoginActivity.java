@@ -1,8 +1,6 @@
-package com.example.shres.nbdemo2.Activity;
+package com.example.shres.nbdemo2.LoginAndRegistration;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.shres.nbdemo2.Activity.NavigationDrawerActivity;
 import com.example.shres.nbdemo2.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

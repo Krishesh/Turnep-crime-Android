@@ -1,17 +1,12 @@
 package com.example.shres.nbdemo2.Fragements.BottomNavBar;
 
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.shres.nbdemo2.Activity.LoginActivity;
-import com.example.shres.nbdemo2.Activity.NavigationDrawerActivity;
-import com.example.shres.nbdemo2.Activity.SignUpActivity;
 import com.example.shres.nbdemo2.R;
 
 /**
