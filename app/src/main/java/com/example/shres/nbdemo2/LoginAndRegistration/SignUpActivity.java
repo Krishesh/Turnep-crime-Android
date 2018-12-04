@@ -99,6 +99,7 @@ public class SignUpActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     @Override
