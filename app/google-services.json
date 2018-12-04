@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "643990512621",
-    "firebase_url": "https://turnepcrimeloginregistration.firebaseio.com",
-    "project_id": "turnepcrimeloginregistration",
-    "storage_bucket": "turnepcrimeloginregistration.appspot.com"
+    "project_number": "757129459367",
+    "firebase_url": "https://turnep-crime.firebaseio.com",
+    "project_id": "turnep-crime",
+    "storage_bucket": "turnep-crime.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:643990512621:android:d277ece09560663a",
+        "mobilesdk_app_id": "1:757129459367:android:d277ece09560663a",
         "android_client_info": {
           "package_name": "com.example.shres.nbdemo2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "643990512621-sq9kuv8fc1ukuv1m48k99sp78gu0c7ec.apps.googleusercontent.com",
+          "client_id": "757129459367-mh5tranvmav95eubbr22ufcf1bmijcac.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shres.nbdemo2",
+            "certificate_hash": "38e3bd0a7b319e3f9b75706f65992f17bfb51a5c"
+          }
+        },
+        {
+          "client_id": "757129459367-a4a9q21tplfv68kmcqgigr11u95rselk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBdxrVVfj6D0ii2UIyZ5ZGOyWZVVw06HKo"
+          "current_key": "AIzaSyAFRtmVNL0OnYxXlcmdzUSRHHemzCi5w18"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "757129459367-a4a9q21tplfv68kmcqgigr11u95rselk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
