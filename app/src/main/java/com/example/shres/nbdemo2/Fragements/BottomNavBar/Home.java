@@ -21,14 +21,14 @@ public class Home extends Fragment {
     ArrayList<String>  str;
     int[] images={
             R.drawable.news,
-            R.drawable.news,
-            R.drawable.news
+            R.drawable.missing_people,
+            R.drawable.crime
     };
 
     String[] string ={
-            "news",
+            "News",
             "Missing",
-            "crime"
+            "Crime"
     };
 
 
