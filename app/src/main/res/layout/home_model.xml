@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:src="@drawable/news"
-        android:contentDescription="NewsImages" />
+        android:contentDescription="@string/newsimages" />
 
     <TextView
         android:id="@+id/home_strings"
