@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.shres.nbdemo2.Fragements.NavBar.CrimeReport;
 import com.example.shres.nbdemo2.Fragements.BottomNavBar.Dashboard;
@@ -157,6 +158,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
             ft.commit();
         } else if (id == R.id.nav_about_FAQ) {
 
+            Intent launchActivity2 = new Intent(NavigationDrawerActivity.this, AboutandFaq.class);
+            startActivity(launchActivity2 );
+
         } else if (id== R.id.nav_share) {
            share();
            return true;
@@ -193,6 +197,36 @@ public class NavigationDrawerActivity extends AppCompatActivity
         startActivity(callintent);
     }
 
+    //switch between home to news,missing people,crime
+    public void homeSwitch(long s) {
+
+        Bundle bundle= new Bundle();
+        bundle.putString("s", String.valueOf(s));
+        String s1=bundle.getString("s");
+        /*Toast.makeText(NavigationDrawerActivity.this,s1,Toast.LENGTH_LONG).show();*/
 
 
+        switch (s1) {
+            case "0": {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.flMain, new News());
+                ft.commit();
+                break;
+            }
+            case "1": {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.flMain, new MissingPeople());
+                ft.commit();
+                break;
+            }
+            case "2": {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.flMain, new CrimeReport());
+                ft.commit();
+
+                break;
+            }
+        }
+
+    }
 }
