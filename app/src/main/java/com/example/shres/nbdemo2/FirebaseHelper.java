@@ -1,5 +1,6 @@
 package com.example.shres.nbdemo2;
 
+import com.example.shres.nbdemo2.RecyclerView.News_object;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,16 +18,16 @@ public class FirebaseHelper {
         this.db = db;
     }
 
-    public Boolean save(Spacecraft spacecraft)
+    public Boolean save(News_object news)
     {
-        if(spacecraft==null)
+        if(news==null)
         {
             saved=false;
         }else
         {
             try
             {
-                db.child("Spacecraft").push().setValue(spacecraft);
+                db.child("news").push().setValue(news);
                 saved=true;
 
             }catch (DatabaseException e)

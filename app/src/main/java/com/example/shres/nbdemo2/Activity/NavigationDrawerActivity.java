@@ -46,7 +46,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
 
     private TextView mTextMessage;
-    private FloatingActionButton fab;
+
     EditText nameEditTxt,addressEditText,phonenumber;
     DatabaseReference db;
     FirebaseHelper helper;
