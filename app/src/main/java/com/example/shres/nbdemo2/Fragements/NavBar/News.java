@@ -4,6 +4,8 @@ package com.example.shres.nbdemo2.Fragements.NavBar;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,19 +41,21 @@ public class News extends Fragment {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_news, container, false);
 
+
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
         itemObjects = getItemObject();
-         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(itemObjects, getActivity());
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(itemObjects, getActivity());
         recyclerViewAdapter = new RecyclerViewAdapter(itemObjects,getActivity());
         recyclerView.setAdapter((RecyclerView.Adapter) recyclerViewAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerViewAdapter.notifyDataSetChanged();
-/*        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
+       /* recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
             @Override
         public void onItemClick(View view, int position) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -80,8 +84,7 @@ public class News extends Fragment {
         return itemObject;
     }
 
-    public void setItemObject(List<ItemObject> itemObject) {
-        this.itemObject = itemObject;
-    }
+
+
 
 }
