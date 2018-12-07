@@ -42,20 +42,20 @@ public class News extends Fragment {
         View view =inflater.inflate(R.layout.fragment_news, container, false);
 
 
-
+/*
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
-        itemObjects = getItemObject();
+     *//*   itemObjects = getItemObject();*//*
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(itemObjects, getActivity());
         recyclerViewAdapter = new RecyclerViewAdapter(itemObjects,getActivity());
         recyclerView.setAdapter((RecyclerView.Adapter) recyclerViewAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerViewAdapter.notifyDataSetChanged();
-       /* recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
+       *//* recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
             @Override
         public void onItemClick(View view, int position) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -74,7 +74,7 @@ public class News extends Fragment {
 
 
 
-    public List<ItemObject> getItemObject() {
+   /* public List<ItemObject> getItemObject() {
         List<ItemObject> itemObjects = new ArrayList<ItemObject>();
 
         itemObjects.add(new ItemObject(R.drawable.news,"News"));
@@ -82,7 +82,7 @@ public class News extends Fragment {
         itemObjects.add(new ItemObject(R.drawable.news,"Crime Report"));
 
         return itemObject;
-    }
+    }*/
 
 
 

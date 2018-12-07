@@ -13,9 +13,13 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,11 +31,15 @@ import com.example.shres.nbdemo2.Fragements.NavBar.NearBy;
 import com.example.shres.nbdemo2.Fragements.NavBar.News;
 import com.example.shres.nbdemo2.Fragements.BottomNavBar.Profile;
 import com.example.shres.nbdemo2.R;
+import com.example.shres.nbdemo2.RecyclerView.ItemObject;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private FloatingActionButton fab;
+
 
     //Bottom navigation bar activity  for calling corresponding fragments
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -89,6 +97,10 @@ public class NavigationDrawerActivity extends AppCompatActivity
         ft.commit();
 
         }
+
+
+        
+
 
 
     }

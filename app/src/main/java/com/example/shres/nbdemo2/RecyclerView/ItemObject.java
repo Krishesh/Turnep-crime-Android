@@ -3,15 +3,30 @@ package com.example.shres.nbdemo2.RecyclerView;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class ItemObject implements Parcelable {
-    private int image;
+public class ItemObject  {
+    String id;
+    String name;
+    String news;
+    String Date;
+    String imgurl;
 
-    public int getImage() {
-        return image;
+    public ItemObject(String name, String news, String date, String imgurl) {
+        this.name = name;
+        this.news = news;
+        Date = date;
+        this.imgurl = imgurl;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+
+    public ItemObject() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -22,39 +37,27 @@ public class ItemObject implements Parcelable {
         this.name = name;
     }
 
-    public ItemObject(int image, String name) {
-        this.image = image;
-        this.name = name;
+    public String getNews() {
+        return news;
     }
 
-    private String name;
-
-    protected ItemObject(Parcel in) {
-        image = in.readInt();
-        name = in.readString();
+    public void setNews(String news) {
+        this.news = news;
     }
 
-
-    public static final Creator<ItemObject> CREATOR = new Creator<ItemObject>() {
-        @Override
-        public ItemObject createFromParcel(Parcel in) {
-            return new ItemObject(in);
-        }
-
-        @Override
-        public ItemObject[] newArray(int size) {
-            return new ItemObject[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getDate() {
+        return Date;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(image);
-        dest.writeString(name);
+    public void setDate(String date) {
+        Date = date;
+    }
+
+    public String getImgurl() {
+        return imgurl;
+    }
+
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl;
     }
 }
