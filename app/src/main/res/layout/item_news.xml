@@ -6,20 +6,23 @@
     <TextView
         android:id="@+id/news_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="@string/news"/>
 
     <TextView
         android:id="@+id/auther"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/news_text"
-        android:textAlignment="textEnd"/>
+        android:textAlignment="textEnd"
+        android:hint="Auther"/>
     <TextView
         android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/auther"
-        android:textAlignment="textEnd"/>
+        android:textAlignment="textEnd"
+        android:hint="Date"/>
 
 
 
