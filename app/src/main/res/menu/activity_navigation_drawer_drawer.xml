@@ -21,7 +21,6 @@
             android:icon="@drawable/ic_nearby"
             android:title="Nearby" />
     </group>
-
     <item android:title="Help and support">
         <menu>
             <item
@@ -30,7 +29,7 @@
                 android:title="Contact us" />
             <item
                 android:id="@+id/nav_about_FAQ"
-                android:icon="@drawable/ic_replace_logo"
+                android:icon="@drawable/logo"
                 android:title="About and FAQ" />
             <item
                 android:id="@+id/nav_feedbacks"

@@ -2,8 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/call"
+        android:title="@string/call"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_contact_us"
+        android:titleCondensed="Call 100"/>
+    <item
+        android:id="@+id/message"
+        android:title="@string/message"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_chat"
+        android:titleCondensed="Message Police"/>
 </menu>

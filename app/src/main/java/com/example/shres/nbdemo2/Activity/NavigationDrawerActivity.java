@@ -4,12 +4,10 @@ import android.app.ActivityOptions;
 import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
+
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -25,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,12 +44,13 @@ import com.google.firebase.database.DatabaseReference;
 public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
     private TextView mTextMessage;
     private FloatingActionButton fab;
     EditText nameEditTxt,addressEditText,phonenumber;
     DatabaseReference db;
     FirebaseHelper helper;
-    private ArrayAdapter<String> adapter;
+
     //Bottom navigation bar activity  for calling corresponding fragments
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -87,28 +87,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-
-
-        //call 100
-/*
-        fab = (FloatingActionButton) findViewById(R.id.call100);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-
-            public void onClick(View view) {
-                // to make call
-                Intent callintent = new Intent(Intent.ACTION_DIAL);
-                callintent.setData(Uri.parse("tel:100"));
-                startActivity(callintent);
-            }
-
-        });
-*/
-
-
-
-        mTextMessage = (TextView) findViewById(R.id.message);
+        TextView mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -129,7 +108,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         ft.commit();
 
         }
-        
+
       /*  fab=findViewById(R.id.call100);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +119,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
 
         });*/
+
 
 
     }
@@ -220,12 +200,20 @@ public class NavigationDrawerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.call) {
+            call();
+            return true;
+        }
+        if (id==R.id.message){
+
             return true;
         }
 
+
         return super.onOptionsItemSelected(item);
     }
+
+
 
 
     // selecting navigation bar items n opening corresponding fragments
@@ -252,10 +240,75 @@ public class NavigationDrawerActivity extends AppCompatActivity
             ft.commit();
         } else if (id == R.id.nav_about_FAQ) {
 
+            Intent launchActivity2 = new Intent(NavigationDrawerActivity.this, AboutandFaq.class);
+            startActivity(launchActivity2 );
+
+        } else if (id== R.id.nav_share) {
+           share();
+           return true;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    //share ur app with other application users-------in Navigation bar
+    private void share() {
+        Intent i = new Intent(
+
+                android.content.Intent.ACTION_SEND);
+
+        i.setType("text/plain");
+
+        i.putExtra(
+
+                android.content.Intent.EXTRA_TEXT, "My new app https://play.google.com/store/search?q=Turnep");
+
+        startActivity(Intent.createChooser(
+
+                i,
+
+                "Share Via"));
+    }
+
+    // call action if needed ---------for condensed menu item
+    private void call() {
+        Intent callintent = new Intent(Intent.ACTION_DIAL);
+        callintent.setData(Uri.parse("tel:100"));
+        startActivity(callintent);
+    }
+
+    //switch between home to news,missing people,crime
+    public void homeSwitch(long s) {
+
+        Bundle bundle= new Bundle();
+        bundle.putString("s", String.valueOf(s));
+        String s1=bundle.getString("s");
+        /*Toast.makeText(NavigationDrawerActivity.this,s1,Toast.LENGTH_LONG).show();*/
+
+
+        switch (s1) {
+            case "0": {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.flMain, new News());
+                ft.commit();
+                break;
+            }
+            case "1": {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.flMain, new MissingPeople());
+                ft.commit();
+                break;
+            }
+            case "2": {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.flMain, new CrimeReport());
+                ft.commit();
+
+                break;
+            }
+        }
+
     }
 }
