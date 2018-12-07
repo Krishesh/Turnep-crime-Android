@@ -10,9 +10,9 @@ public class News_object {
 
     }
 
-    public News_object(String name, String auther, String date) {
+    public News_object(String name, String news_text, String date) {
         this.name = name;
-        this.news_text = auther;
+        this.news_text = news_text;
         Date = date;
     }
 

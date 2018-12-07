@@ -19,19 +19,19 @@ public class RecyclerViewAdapter  extends RecyclerView.Adapter<RecyclerViewAdapt
     private List<News_object> news_list;
     private Context context;
 
-    public RecyclerViewAdapter(List<News_object> newsdata, Context context) {
-        this.news_list = newsdata;
+    public RecyclerViewAdapter(List<News_object> news_list, Context context) {
+        this.news_list = news_list;
         this.context = context;
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public MyViewHolder onCreateViewHolder( ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(context).inflate(R.layout.item_news,viewGroup,false);
         MyViewHolder viewHolder = new MyViewHolder(v);
 
 
 
-        return null;
+        return viewHolder;
     }
 
     @Override
