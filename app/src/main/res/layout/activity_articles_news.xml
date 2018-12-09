@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,9 +16,9 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="#0000"
             android:orientation="vertical"
            >
@@ -26,40 +27,52 @@
                 android:id="@+id/news_headlines"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="News Headlines"/>
+                android:hint="News Headlines"
+                android:textSize="25dp"
+                />
 
             <TextView
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="textEnd"
+                android:layout_below="@+id/news_headlines"
+                android:layout_alignParentStart="true"
                 android:hint="Date"
 
-                />
+                android:textAlignment="textEnd"
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/auther"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="textEnd"
+                android:layout_below="@+id/date"
+                android:layout_alignParentStart="true"
                 android:hint="Auther"
-               />
+                android:textAlignment="textEnd"
+                android:textSize="15dp" />
 
             <ImageView
 
                 android:id="@+id/news_images_url"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:contentDescription="newimage"
+                android:layout_alignParentStart="true"
 
-               />
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:contentDescription="newimage" />
 
             <TextView
                 android:id="@+id/news_description"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="news_description"
                 android:textAlignment="center"
-                android:hint="news_description"/>
+                android:textSize="17dp"
+                android:layout_below="@id/news_images_url"/>
 
 
             <TextView
@@ -68,9 +81,13 @@
                 android:layout_height="match_parent"
 
                 android:hint="content"
+                android:textSize="20dp"
+                android:maxLines="20"
+                android:layout_below="@+id/news_description"
                 />
 
-        </LinearLayout>
+        </RelativeLayout>
+
 
 
     </ScrollView>

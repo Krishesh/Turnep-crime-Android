@@ -226,19 +226,19 @@ public class NavigationDrawerActivity extends AppCompatActivity
         switch (s1) {
             case "0": {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.flMain, new News());
+                ft.replace(R.id.flMain, new News()).addToBackStack(null);
                 ft.commit();
                 break;
             }
             case "1": {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.flMain, new MissingPeople());
+                ft.replace(R.id.flMain, new MissingPeople()).addToBackStack(null);
                 ft.commit();
                 break;
             }
             case "2": {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.flMain, new CrimeReport());
+                ft.replace(R.id.flMain, new CrimeReport()).addToBackStack(null);
                 ft.commit();
 
                 break;
