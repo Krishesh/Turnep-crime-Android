@@ -14,13 +14,18 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#0000"
             android:orientation="vertical"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+
            >
 
             <TextView
@@ -58,7 +63,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_alignParentStart="true"
-
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
@@ -68,7 +72,6 @@
                 android:id="@+id/news_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:hint="news_description"
                 android:textAlignment="center"
                 android:textSize="17dp"
@@ -79,14 +82,13 @@
                 android:id="@+id/news_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
                 android:hint="content"
                 android:textSize="20dp"
                 android:maxLines="20"
                 android:layout_below="@+id/news_description"
                 />
 
-        </RelativeLayout>
+        </LinearLayout>
 
 
 

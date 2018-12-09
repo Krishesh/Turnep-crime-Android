@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,10 +45,7 @@ public class Articles_news extends AppCompatActivity {
         news_disc.setText(disc);
 
         String news_img = getIntent().getStringExtra("News Image");
-       /* news_image.setText(news_headlines_title);*/
-       /* Context mContent = null;
-        Picasso.with(mContent).load(String.valueOf(news_image)).into(news_image);*/
-     new GetImageFromURL(news_image).execute(news_img);
+         new GetImageFromURL(news_image).execute(news_img);
 
 
 
@@ -83,6 +81,22 @@ public class Articles_news extends AppCompatActivity {
             imgView.setImageBitmap(bitmap);
         }
 
+
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == android.R.id.home) {
+            // finish the activity
+            onBackPressed();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
 
     }
 }
