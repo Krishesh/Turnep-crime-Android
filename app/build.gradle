@@ -37,7 +37,6 @@ dependencies {
     //firebase
     implementation 'com.google.firebase:firebase-core:16.0.5'
 
-
 // picasso implementation
     implementation 'com.squareup.picasso:picasso:2.5.2'
 

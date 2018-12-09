@@ -104,6 +104,8 @@ public class NewsViewAdapter  extends ArrayAdapter<NewsItems> {
         TextView titleTextView;
         ImageView imageView;
         TextView descriptionTextView;
+        TextView date;
+        TextView auther;
 
     }
 }

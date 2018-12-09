@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,9 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.shres.nbdemo2.Activity.AboutandFaq;
+import com.example.shres.nbdemo2.Activity.NavigationDrawerActivity;
+import com.example.shres.nbdemo2.News_java.Articles_news;
 import com.example.shres.nbdemo2.News_java.NewsItems;
 import com.example.shres.nbdemo2.News_java.NewsViewAdapter;
 import com.example.shres.nbdemo2.R;
@@ -56,10 +61,7 @@ public class News extends Fragment {
         // Inflate the layout for this fragment
         View view=  inflater.inflate(R.layout.fragment_news, container, false);
 
-        Intent intent = getActivity().getIntent();
-        String name =intent.getStringExtra("name");
-        String id = intent.getStringExtra("id");
-        getActivity().setTitle(name);
+
 
         FEED_URL = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=6b7898d19b824a9aaab09412f5f1feb8";
         mListView = (ListView) view.findViewById(R.id.listView);
@@ -77,9 +79,16 @@ public class News extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 NewsItems item =(NewsItems) parent.getItemAtPosition(position);
 
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getUrl()));
+                /*Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getUrl()));*/
+                Intent Article = new Intent(getActivity(), Articles_news.class);
+                Article.putExtra("Headlines", item.getTitle());
+                Article.putExtra("News Image",item.getImage());
+                Article.putExtra("discription",item.getDescription());
+                Article.putExtra("date",item.getDate());
+                Article.putExtra("auther",item.getAuther());
+                Article.putExtra("content",item.getContent());
 
-                startActivity(browserIntent);
+                startActivity(Article);
             }
         });
 
@@ -171,7 +180,7 @@ public class News extends Fragment {
      * Parsing the feed results and get the list
      * @param result
      */
-    private void parseResult(String result) {
+    public void parseResult(String result) {
         try {
             JSONObject response = new JSONObject(result);
             JSONArray posts = response.optJSONArray("articles");
@@ -182,12 +191,19 @@ public class News extends Fragment {
                 Log.i("Title",title);
                 String image = post.optString("urlToImage");
                 String description = post.optString("description");
+                String date = post.optString("publishedAt");
+                String auther = post.optString("author");
+                String content = post.optString("content");
                 String url = post.optString("url");
                 item = new NewsItems();
                 item.setTitle(title);
                 item.setImage(image);
                 item.setUrl(url);
                 item.setDescription(description);
+                item.setDate(date);
+                item.setAuther(auther);
+                item.setContent(content);
+
 
                 mListData.add(item);
             }
@@ -197,4 +213,5 @@ public class News extends Fragment {
             e.printStackTrace();
         }
     }
+
 }

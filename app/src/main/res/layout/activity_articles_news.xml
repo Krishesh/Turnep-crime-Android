@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".News_java.Articles_news">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0000"
+            android:orientation="vertical"
+           >
+
+            <TextView
+                android:id="@+id/news_headlines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="News Headlines"/>
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:hint="Date"
+
+                />
+
+            <TextView
+                android:id="@+id/auther"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:hint="Auther"
+               />
+
+            <ImageView
+
+                android:id="@+id/news_images_url"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:contentDescription="newimage"
+
+               />
+
+            <TextView
+                android:id="@+id/news_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+                android:hint="news_description"/>
+
+
+            <TextView
+                android:id="@+id/news_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:hint="content"
+                />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</RelativeLayout>

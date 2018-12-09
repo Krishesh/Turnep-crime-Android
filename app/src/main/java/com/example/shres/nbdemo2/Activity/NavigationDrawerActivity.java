@@ -159,24 +159,24 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
         if (id == R.id.nav_news) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.flMain,new News());
+            ft.replace(R.id.flMain,new News()).addToBackStack(null);
             ft.commit();
         } else if (id == R.id.nav_missing) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.flMain,new MissingPeople());
+            ft.replace(R.id.flMain,new MissingPeople()).addToBackStack(null);
             ft.commit();
         } else if (id == R.id.nav_crime_report) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.flMain,new CrimeReport());
+            ft.replace(R.id.flMain,new CrimeReport()).addToBackStack(null);
             ft.commit();
         } else if (id == R.id.nav_near_by) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.flMain,new NearBy());
+            ft.replace(R.id.flMain,new NearBy()).addToBackStack(null);
             ft.commit();
         } else if (id == R.id.nav_about_FAQ) {
 
-            Intent launchActivity2 = new Intent(NavigationDrawerActivity.this, AboutandFaq.class);
-            startActivity(launchActivity2 );
+            Intent AboutandFaQ = new Intent(NavigationDrawerActivity.this, AboutandFaq.class);
+            startActivity(AboutandFaQ);
 
         } else if (id== R.id.nav_share) {
            share();
