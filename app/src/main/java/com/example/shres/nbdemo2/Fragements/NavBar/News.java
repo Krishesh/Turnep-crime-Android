@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,9 +61,9 @@ public class News extends Fragment {
         String id = intent.getStringExtra("id");
         getActivity().setTitle(name);
 
-        FEED_URL = "https://newsapi.org/v1/articles?source="+id+"&apiKey=75018a76234946df8975bdac9f556d06";
+        FEED_URL = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=6b7898d19b824a9aaab09412f5f1feb8";
         mListView = (ListView) view.findViewById(R.id.listView);
-      /*  mProgressBar = (ProgressBar) view.findViewById(progressBar);*/
+        mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         progressBar2 = (ProgressBar)view.findViewById(R.id.list_item_progressbar);
 
 
@@ -178,6 +179,7 @@ public class News extends Fragment {
             for (int i = 0; i < posts.length(); i++) {
                 JSONObject post = posts.optJSONObject(i);
                 String title = post.optString("title");
+                Log.i("Title",title);
                 String image = post.optString("urlToImage");
                 String description = post.optString("description");
                 String url = post.optString("url");
