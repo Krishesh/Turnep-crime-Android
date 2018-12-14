@@ -86,7 +86,7 @@ public class NewsViewAdapter  extends ArrayAdapter<NewsItems> {
 
         if ((item.getImage()).toString() != "null" && !TextUtils.isEmpty(item.getImage())) {
 
-            Picasso.with(mContext).load(item.getImage()).into(holder.imageView);
+            Picasso.get().load(item.getImage()).into(holder.imageView);
 
 
         } else {

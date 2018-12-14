@@ -47,5 +47,6 @@ public class AboutandFaq extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
 
+
     }
 }
