@@ -13,9 +13,10 @@ import com.squareup.picasso.Picasso;
 public class MissingViewHolder  extends RecyclerView.ViewHolder {
 
     View mview;
-    public MissingViewHolder(@NonNull View itemView) {
+    public MissingViewHolder( View itemView) {
         super(itemView);
         mview =itemView;
+
     }
 
    public void setDetails(Context ctx,String title,String discription,String image){
