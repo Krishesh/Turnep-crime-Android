@@ -94,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="aashish.neupane1430@gmail.com"
+                android:text="@string/turnepcom"
                 android:textStyle="bold"
                 android:textSize="18dp"/>
 
