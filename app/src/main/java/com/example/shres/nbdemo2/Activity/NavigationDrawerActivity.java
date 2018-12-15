@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -27,6 +28,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.shres.nbdemo2.Fragements.ContactUsFragment;
 import com.example.shres.nbdemo2.Fragements.NavBar.CrimeReport;
 import com.example.shres.nbdemo2.Fragements.BottomNavBar.Dashboard;
 import com.example.shres.nbdemo2.Fragements.BottomNavBar.Home;
@@ -184,11 +186,11 @@ public class NavigationDrawerActivity extends AppCompatActivity
             ft.replace(R.id.flMain, new NearBy()).addToBackStack(null);
             ft.commit();
         } else if (id == R.id.nav_contact_us) {
-            LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-            PopupWindow pw = new PopupWindow(inflater.inflate(R.layout.activity_contact_us, null, false),300,250, true);
-
-            pw.showAtLocation(this.findViewById(R.id.contentnavigationdrawer), Gravity.CENTER, 10, 10);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            ContactUsFragment newFragment = new ContactUsFragment();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            transaction.add(android.R.id.content, newFragment).addToBackStack(null).commit();
 
         }else if (id == R.id.nav_about_FAQ) {
 
