@@ -54,11 +54,11 @@ public class NavigationDrawerActivity extends AppCompatActivity
                     ft.replace(R.id.flMain,new Home());
                     ft.commit();
                     return true;
-                case R.id.navigation_dashboard:
+                /*case R.id.navigation_dashboard:
                     FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
                     ft1.replace(R.id.flMain,new Dashboard());
                     ft1.commit();
-                    return true;
+                    return true;*/
                 case R.id.navigation_profile:
                     FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
                     ft2.replace(R.id.flMain,new Profile());
@@ -76,22 +76,6 @@ public class NavigationDrawerActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //call 100
-/*
-        fab = (FloatingActionButton) findViewById(R.id.call100);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-
-            public void onClick(View view) {
-                // to make call
-                Intent callintent = new Intent(Intent.ACTION_DIAL);
-                callintent.setData(Uri.parse("tel:100"));
-                startActivity(callintent);
-            }
-
-        });
-*/
 
 
         TextView mTextMessage = (TextView) findViewById(R.id.message);
@@ -181,11 +165,12 @@ public class NavigationDrawerActivity extends AppCompatActivity
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.flMain,new CrimeReport()).addToBackStack(null);
             ft.commit();
-        } else if (id == R.id.nav_near_by) {
+        } /*else if (id == R.id.nav_near_by) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.flMain, new NearBy()).addToBackStack(null);
             ft.commit();
-        } else if (id == R.id.nav_contact_us) {
+        } */
+        else if (id == R.id.nav_contact_us) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             ContactUsFragment newFragment = new ContactUsFragment();
             FragmentTransaction transaction = fragmentManager.beginTransaction();

@@ -16,10 +16,10 @@
             android:id="@+id/nav_crime_report"
             android:icon="@drawable/ic_crime_report"
             android:title="Crime Report" />
-        <item
+       <!-- <item
             android:id="@+id/nav_near_by"
             android:icon="@drawable/ic_nearby"
-            android:title="Nearby" />
+            android:title="Nearby" />-->
     </group>
     <item android:title="Help and support">
         <menu>
@@ -31,10 +31,10 @@
                 android:id="@+id/nav_about_FAQ"
                 android:icon="@drawable/logo"
                 android:title="About and FAQ" />
-            <item
+        <!--    <item
                 android:id="@+id/nav_feedbacks"
                 android:icon="@drawable/ic_feedback"
-                android:title="Feedbacks" />
+                android:title="Feedbacks" />-->
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"

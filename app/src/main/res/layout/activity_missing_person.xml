@@ -17,25 +17,24 @@
             />
 
 
-
         <ImageView
 
             android:id="@+id/missingimage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_below="@+id/missingtitle"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="-34dp"
             android:contentDescription="newimage"
-            android:layout_below="@id/missingtitle"/>
+            />
 
         <TextView
             android:id="@+id/missingname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Missingname"
-            android:textAlignment="center"
+              android:textAlignment="center"
             android:textSize="25dp"
             android:layout_below="@id/missingimage"/>
 
