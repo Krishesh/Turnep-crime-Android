@@ -4,6 +4,7 @@
     android:layout_width="300dp"
     android:layout_height="250dp"
     android:background="@color/colorPrimaryDark"
+
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:layout_gravity="center">
@@ -39,7 +40,6 @@
                 android:tint="@android:color/white"
                 android:layout_gravity="end"
                 app:srcCompat="@drawable/ic_close" />
-
 
 
         </LinearLayout>
