@@ -81,9 +81,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="aashish.neupane1430@gmail.com"
+                android:text="@string/turnepcom"
                 android:textColorLink="@color/common_google_signin_btn_text_dark_default"
-                android:autoLink="email"
+                android:autoLink="web"
                 android:textStyle="bold"
                 android:textSize="18dp"/>
 
