@@ -22,6 +22,9 @@ import java.io.InputStream;
 
 public class Articles_news extends AppCompatActivity {
 
+    FloatingActionMenu menu;
+    FloatingActionButton b1, b2, b3;
+
 
 
 
@@ -29,6 +32,9 @@ public class Articles_news extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_articles_news);
+
+        menu = (FloatingActionMenu) findViewById(R.id.menu);
+        menu.setClosedOnTouchOutside(true); /**This method will close the Menu When click on outside**/
 
 
         TextView news_headlines = findViewById(R.id.news_headlines);
@@ -55,6 +61,56 @@ public class Articles_news extends AppCompatActivity {
 
         String news_img = getIntent().getStringExtra("News Image");
          new GetImageFromURL(news_image).execute(news_img);
+
+        menu.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
+            @Override
+            public void onMenuToggle(boolean opened) {
+                /**Vibrator Service for Vibration**/
+                /**Add a permission in Manifest.xml for vibration**/
+                Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                if (opened) {
+                    /**If menu is opened**/
+                    if (vibe != null) {
+                        vibe.vibrate(50);
+                    }
+                } else {
+                    /**If menu is closed**/
+                    if (vibe != null) {
+                        vibe.vibrate(50);
+                    }
+                }
+            }
+        });
+
+
+        b1 = (FloatingActionButton) findViewById(R.id.b1);
+        b2 = (FloatingActionButton) findViewById(R.id.b2);
+        b3 = (FloatingActionButton) findViewById(R.id.b3);
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Articles_news.this, "Button 1 is Clicked", Toast.LENGTH_SHORT).show();
+                menu.close(true);
+            }
+        });
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Articles_news.this, "Button 2 is Clicked", Toast.LENGTH_SHORT).show();
+                menu.close(true);
+            }
+        });
+
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Articles_news.this, "Button 3 is Clicked", Toast.LENGTH_SHORT).show();
+                menu.close(true);
+            }
+        });
+
 
     }
 
