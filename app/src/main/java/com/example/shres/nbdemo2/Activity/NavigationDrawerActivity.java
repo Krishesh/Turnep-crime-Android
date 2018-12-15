@@ -1,12 +1,17 @@
 package com.example.shres.nbdemo2.Activity;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,11 +19,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.shres.nbdemo2.Fragements.ContactUsFragment;
 import com.example.shres.nbdemo2.Fragements.NavBar.CrimeReport;
 import com.example.shres.nbdemo2.Fragements.BottomNavBar.Dashboard;
 import com.example.shres.nbdemo2.Fragements.BottomNavBar.Home;
@@ -32,7 +42,6 @@ public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FloatingActionButton fab;
-
     //Bottom navigation bar activity  for calling corresponding fragments
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -151,6 +160,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
 
 
+
+
+
     // selecting navigation bar items n opening corresponding fragments
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -171,9 +183,16 @@ public class NavigationDrawerActivity extends AppCompatActivity
             ft.commit();
         } else if (id == R.id.nav_near_by) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.flMain,new NearBy()).addToBackStack(null);
+            ft.replace(R.id.flMain, new NearBy()).addToBackStack(null);
             ft.commit();
-        } else if (id == R.id.nav_about_FAQ) {
+        } else if (id == R.id.nav_contact_us) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            ContactUsFragment newFragment = new ContactUsFragment();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            transaction.add(android.R.id.content, newFragment).addToBackStack(null).commit();
+
+        }else if (id == R.id.nav_about_FAQ) {
 
             Intent AboutandFaQ = new Intent(NavigationDrawerActivity.this, AboutandFaq.class);
             startActivity(AboutandFaQ);

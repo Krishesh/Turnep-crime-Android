@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Activity.NavigationDrawerActivity"
-    tools:showIn="@layout/app_bar_navigation_drawer">
+    tools:showIn="@layout/app_bar_navigation_drawer"
+    android:id="@+id/contentnavigationdrawer">
 
     <FrameLayout
         android:id="@+id/flMain"
