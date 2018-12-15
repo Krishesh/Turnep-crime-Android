@@ -233,6 +233,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
         startActivity(callintent);
     }
 
+
+
+
     //switch between home to news,missing people,crime
     public void homeSwitch(long s) {
 

@@ -2,6 +2,7 @@ package com.example.shres.nbdemo2.Fragements;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,12 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.shres.nbdemo2.R;
 
 
 
-public class ContactUsFragment extends DialogFragment {
+public class ContactUsFragment extends DialogFragment  {
 
 
 
@@ -36,6 +39,9 @@ public class ContactUsFragment extends DialogFragment {
                 dismiss();
             }
         });
+
+
+
         return rootView;
     }
 
@@ -46,5 +52,7 @@ public class ContactUsFragment extends DialogFragment {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         return dialog;
     }
+
+
 }
 

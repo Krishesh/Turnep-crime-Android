@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="300dp"
-    android:layout_height="250dp"
+    android:layout_height="200dp"
     android:background="@color/colorPrimaryDark"
 
     android:fitsSystemWindows="true"
@@ -53,7 +53,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="70dp"
             android:orientation="horizontal">
 
             <TextView
@@ -62,31 +62,18 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="9843225386"
+                android:autoLink="phone"
                 android:textStyle="bold"
+                android:textColorLink="@color/common_google_signin_btn_text_dark_default"
                 android:textSize="20dp"
-                android:onClick="contactuscall1"/>
+                android:clickable="true"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/contactuscall2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="9843225386"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="70dp"
             android:orientation="vertical">
 
             <TextView
@@ -95,6 +82,8 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="aashish.neupane1430@gmail.com"
+                android:textColorLink="@color/common_google_signin_btn_text_dark_default"
+                android:autoLink="email"
                 android:textStyle="bold"
                 android:textSize="18dp"/>
 
