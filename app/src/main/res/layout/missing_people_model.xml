@@ -30,7 +30,7 @@
             android:scaleType="centerCrop" />
 
         <TextView
-            android:id="@+id/rDiscription"
+            android:id="@+id/rname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="hello its 00"

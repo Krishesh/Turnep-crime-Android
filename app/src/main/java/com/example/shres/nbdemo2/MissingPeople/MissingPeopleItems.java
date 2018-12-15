@@ -2,12 +2,12 @@ package com.example.shres.nbdemo2.MissingPeople;
 
 public class MissingPeopleItems {
 
-    String title,image,discription;
+    String title,image,name;
 
-    public MissingPeopleItems(String title, String image, String discription) {
+    public MissingPeopleItems(String title, String image, String name) {
         this.title = title;
         this.image = image;
-        this.discription = discription;
+        this.name = name;
     }
 
     public MissingPeopleItems() {
@@ -29,11 +29,11 @@ public class MissingPeopleItems {
         this.image = image;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getname() {
+        return name;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
+    public void setname(String name) {
+        this.name = name;
     }
 }

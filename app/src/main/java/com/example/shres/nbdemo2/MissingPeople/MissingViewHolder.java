@@ -19,14 +19,14 @@ public class MissingViewHolder  extends RecyclerView.ViewHolder {
 
     }
 
-   public void setDetails(Context ctx,String title,String discription,String image){
+   public void setDetails(Context ctx,String title,String name,String image){
         //views
         TextView mtitle = mview.findViewById(R.id.rTitle);
-        TextView mdetails = mview.findViewById(R.id.rDiscription);
+        TextView mname = mview.findViewById(R.id.rname);
         ImageView mimage = mview.findViewById(R.id.rImageView);
         //set data to views
         mtitle.setText(title);
-        mdetails.setText(discription);
+        mname.setText(name);
         Picasso.get().load(image).into(mimage);
 
 

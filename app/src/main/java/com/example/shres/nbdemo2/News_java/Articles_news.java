@@ -4,23 +4,32 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Vibrator;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.shres.nbdemo2.R;
+import com.github.clans.fab.FloatingActionMenu;
 import com.squareup.picasso.Picasso;
 
 import java.io.InputStream;
 
 public class Articles_news extends AppCompatActivity {
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_articles_news);
+
 
         TextView news_headlines = findViewById(R.id.news_headlines);
         TextView Date = findViewById(R.id.date);
@@ -46,11 +55,6 @@ public class Articles_news extends AppCompatActivity {
 
         String news_img = getIntent().getStringExtra("News Image");
          new GetImageFromURL(news_image).execute(news_img);
-
-
-
-
-
 
     }
 

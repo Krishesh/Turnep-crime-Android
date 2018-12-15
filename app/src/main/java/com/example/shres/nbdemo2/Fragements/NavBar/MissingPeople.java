@@ -70,7 +70,7 @@ public class MissingPeople extends Fragment {
                 ) {
                     @Override
                     protected void populateViewHolder(MissingViewHolder viewHolder, MissingPeopleItems model, int position) {
-                            viewHolder.setDetails(getContext(),model.getTitle(),model.getDiscription(),model.getImage());
+                            viewHolder.setDetails(getContext(),model.getTitle(),model.getname(),model.getImage());
 
                     }
                 };
