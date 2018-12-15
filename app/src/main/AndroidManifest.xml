@@ -26,7 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.AboutandFaq" />
-        <activity android:name=".News_java.Articles_news"></activity>
+        <activity android:name=".News_java.Articles_news" />
+        <activity android:name=".MissingPeople.MissingPersonActivity"></activity>
     </application>
 
 </manifest>

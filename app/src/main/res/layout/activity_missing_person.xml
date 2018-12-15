@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MissingPeople.MissingPersonActivity">
+
+
+
+        <TextView
+            android:id="@+id/missingtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=" Title"
+            android:textSize="25dp"
+            />
+
+
+
+        <ImageView
+
+            android:id="@+id/missingimage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:contentDescription="newimage"
+            android:layout_below="@id/missingtitle"/>
+
+        <TextView
+            android:id="@+id/missingname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Missingname"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            android:layout_below="@id/missingimage"/>
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="age"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            android:layout_below="@id/missingname"/>
+
+
+        <TextView
+            android:id="@+id/missing_discription"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Discription"
+            android:textSize="20dp"
+            android:maxLines="20"
+            android:layout_below="@+id/age"
+            />
+
+
+
+</RelativeLayout>
