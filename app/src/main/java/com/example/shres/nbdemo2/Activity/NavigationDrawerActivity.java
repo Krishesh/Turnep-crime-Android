@@ -1,8 +1,11 @@
 package com.example.shres.nbdemo2.Activity;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -14,16 +17,20 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.SmsManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -133,7 +140,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
             return true;
         }
         if (id==R.id.message){
-
+            message();
             return true;
         }
 
@@ -193,7 +200,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
     }
 
     //share ur app with other application users-------in Navigation bar 
-    private void share() {
+    public void share() {
         Intent i = new Intent(
 
                 android.content.Intent.ACTION_SEND);
@@ -212,10 +219,39 @@ public class NavigationDrawerActivity extends AppCompatActivity
     }
 
     // call action if needed ---------for condensed menu item
-    private void call() {
+    public void call() {
         Intent callintent = new Intent(Intent.ACTION_DIAL);
         callintent.setData(Uri.parse("tel:100"));
         startActivity(callintent);
+    }
+    //meessage part
+    public void message(){
+        final EditText taskEditText = new EditText(this);
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("Message")
+                /*.setMessage("What do you want to do next?")*/
+                .setView(taskEditText)
+                .setPositiveButton("send", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String smsMessage = String.valueOf(taskEditText.getText());
+                        if(checkPermission(Manifest.permission.SEND_SMS)){
+                            SmsManager smsManager = SmsManager.getDefault();
+                            smsManager.sendTextMessage("9804185934", null, smsMessage, null, null);
+                            Toast.makeText(NavigationDrawerActivity.this, "Message Sent!", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(NavigationDrawerActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .setNegativeButton("Cancel",null)
+                .create();
+        dialog.show();
+
+    }
+    public boolean checkPermission(String permission){
+        int check = ContextCompat.checkSelfPermission(this, permission);
+        return (check == PackageManager.PERMISSION_GRANTED);
     }
 
     //switch between home to news,missing people,crime
