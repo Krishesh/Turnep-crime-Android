@@ -5,9 +5,13 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+
+import android.content.SharedPreferences;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -49,6 +53,10 @@ public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FloatingActionButton fab;
+
+    SharedPreferences sp;
+
+
     //Bottom navigation bar activity  for calling corresponding fragments
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -68,9 +76,11 @@ public class NavigationDrawerActivity extends AppCompatActivity
                     return true;*/
                 case R.id.navigation_profile:
                     FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
-                    ft2.replace(R.id.flMain,new Profile());
-                    ft2.commit();
-                    return true;
+                        ft2.replace(R.id.flMain,new Profile());
+                        ft2.commit();
+                        return true;
+
+
             }
             return false;
         }
@@ -135,7 +145,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.call) {
+        if (id == R.id.call1) {
             call();
             return true;
         }
@@ -199,7 +209,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         return true;
     }
 
-    //share ur app with other application users-------in Navigation bar 
+    //share ur app with other application users-------in Navigation bar
     public void share() {
         Intent i = new Intent(
 
@@ -286,5 +296,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         }
 
     }
+
+
 
 }

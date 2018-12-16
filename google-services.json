@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "643990512621",
+    "firebase_url": "https://turnepcrimeloginregistration.firebaseio.com",
+    "project_id": "turnepcrimeloginregistration",
+    "storage_bucket": "turnepcrimeloginregistration.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643990512621:android:d277ece09560663a",
+        "android_client_info": {
+          "package_name": "com.example.shres.nbdemo2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643990512621-sq9kuv8fc1ukuv1m48k99sp78gu0c7ec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdxrVVfj6D0ii2UIyZ5ZGOyWZVVw06HKo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
