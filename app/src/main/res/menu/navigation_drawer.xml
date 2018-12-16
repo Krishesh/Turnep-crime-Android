@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/call1"
+        android:id="@+id/cal1"
         android:title="@string/call"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_contact_us"

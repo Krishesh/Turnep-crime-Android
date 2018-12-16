@@ -71,7 +71,7 @@ public class MissingPersonActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.call) {
+        if (id == R.id.cal1) {
            call();
             return true;
         }
