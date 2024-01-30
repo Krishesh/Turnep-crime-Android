@@ -39,7 +39,6 @@ import java.util.ArrayList;
 import javax.net.ssl.HttpsURLConnection;
 
 
-
 public class News extends Fragment {
     private static final String TAG = News.class.getSimpleName();
     private ListView mListView;
@@ -59,34 +58,33 @@ public class News extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=  inflater.inflate(R.layout.fragment_news, container, false);
+        View view = inflater.inflate(R.layout.fragment_news, container, false);
 
 
-
-        FEED_URL = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=6b7898d19b824a9aaab09412f5f1feb8";
+        FEED_URL = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=75018a76234946df8975bdac9f556d06";
         mListView = (ListView) view.findViewById(R.id.listView);
         mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-        progressBar2 = (ProgressBar)view.findViewById(R.id.list_item_progressbar);
+        progressBar2 = (ProgressBar) view.findViewById(R.id.list_item_progressbar);
 
 
         //Initialize with empty data
         mListData = new ArrayList<>();
         mListAdapter = new NewsViewAdapter(getActivity(), R.layout.news_model, mListData);
         mListView.setAdapter(mListAdapter);
-
+        Log.i("result", "hello");
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                NewsItems item =(NewsItems) parent.getItemAtPosition(position);
+                NewsItems item = (NewsItems) parent.getItemAtPosition(position);
 
                 /*Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getUrl()));*/
                 Intent Article = new Intent(getActivity(), Articles_news.class);
                 Article.putExtra("Headlines", item.getTitle());
-                Article.putExtra("News Image",item.getImage());
-                Article.putExtra("discription",item.getDescription());
-                Article.putExtra("date",item.getDate());
-                Article.putExtra("auther",item.getAuther());
-                Article.putExtra("content",item.getContent());
+                Article.putExtra("News Image", item.getImage());
+                Article.putExtra("discription", item.getDescription());
+                Article.putExtra("date", item.getDate());
+                Article.putExtra("auther", item.getAuther());
+                Article.putExtra("content", item.getContent());
 
                 startActivity(Article);
             }
@@ -95,11 +93,7 @@ public class News extends Fragment {
         //Start download
         new News.AsyncHttpTask().execute(FEED_URL);
         mProgressBar.setVisibility(View.VISIBLE);
-
-
-
-
-        return  view;
+        return view;
 
     }
 
@@ -109,56 +103,31 @@ public class News extends Fragment {
             String result = "";
             URL url;
             HttpsURLConnection urlConnection = null;
-
             try {
                 url = new URL(urls[0]);
-
-                urlConnection = (HttpsURLConnection) url.openConnection();
-
-
+                Log.i("result", "hello");
                 if (result != null) {
-
                     String response = streamToString(urlConnection.getInputStream());
-
-
                     parseResult(response);
-
-
-
                     return result;
-
-
-
                 }
             } catch (MalformedURLException e) {
                 e.printStackTrace();
-
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
             return null;
-
         }
 
-
-
-
-
-
-    protected void onPostExecute(String result) {
-        // Download complete. Let us update UI
-        if (result != null) {
-
-            mListAdapter.setListData(mListData);
-
-        } else {
-            Toast.makeText(getActivity(), "Failed to load data!", Toast.LENGTH_SHORT).show();
+        protected void onPostExecute(String result) {
+            // Download complete. Let us update UI
+            if (result != null) {
+                mListAdapter.setListData(mListData);
+            } else {
+                Toast.makeText(getActivity(), "Failed to load data!", Toast.LENGTH_SHORT).show();
+            }
+            mProgressBar.setVisibility(View.GONE);
         }
-        mProgressBar.setVisibility(View.GONE);
-        }
-
     }
 
     String streamToString(InputStream stream) throws IOException {
@@ -168,7 +137,6 @@ public class News extends Fragment {
         while ((line = bufferedReader.readLine()) != null) {
             result += line;
         }
-
         // Close stream
         if (null != stream) {
             stream.close();
@@ -178,6 +146,7 @@ public class News extends Fragment {
 
     /**
      * Parsing the feed results and get the list
+     *
      * @param result
      */
     public void parseResult(String result) {
@@ -188,7 +157,7 @@ public class News extends Fragment {
             for (int i = 0; i < posts.length(); i++) {
                 JSONObject post = posts.optJSONObject(i);
                 String title = post.optString("title");
-                Log.i("Title",title);
+                Log.i("Title", title);
                 String image = post.optString("urlToImage");
                 String description = post.optString("description");
                 String date = post.optString("publishedAt");
